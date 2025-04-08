@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Abdinahmen Ahmed</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f3f4f6;
+      color: #333;
+    }
+    nav {
+      background: #333;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+    }
+    section {
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: auto;
+      background-color: #ffffff;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    .center {
+      text-align: center;
+    }
+    #profile-pic {
+      border-radius: 50%;
+      width: 150px;
+      animation: pop 1s ease-in-out;
+    }
+    @keyframes pop {
+      0% { transform: scale(0); }
+      100% { transform: scale(1); }
+    }
+    .project {
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+    }
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .socials img {
+      width: 30px;
+      margin: 0.5rem;
+    }
+    button, .btn {
+      background: #ff6f61;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.25rem;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+    button:hover, .btn:hover {
+      background: #e64a3c;
+    }
+    form input, form textarea {
+      display: block;
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav a {
+        padding: 0.75rem;
+      }
+    }
+    @media (max-width: 600px) {
+      section {
+        padding: 2rem 1rem;
+      }
+      #profile-pic {
+        width: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="UpdatedResume.pdf" class="btn" download>Download Resume</a>
+  </nav>
+
+  <section id="about" class="center">
+    <h1>Hi, I'm Abdinahmen Ahmed</h1>
+    <img id="profile-pic" src="" alt="Profile Picture" />
+    <p id="bio">Loading bio...</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <!-- Twitter API Project -->
+    <div class="project">
+      <h3><a href="https://github.com/fasttrackd-student-work/spring-assessment-social-media-march-2025-team-2" target="_blank">Twitter API</a></h3>
+      <span>2025</span>
+      <ul>
+        <li>Worked with a team to build a Twitter clone REST API using Spring Boot.</li>
+        <li>Implemented features like posting tweets, managing mentions and hashtags, replies, reposts, and user interactions (likes, mentions).</li>
+        <li>Handled complex entity relationships and recursive data flows.</li>
+        <li>Built clean validation logic using DTOs and service layers.</li>
+        <li>Practiced agile collaboration and Git-based team workflows.</li>
+        <li>Tested endpoints using Postman and automated tests with Newman.</li>
+      </ul>
+    </div>
+
+    <!-- Earthquake Visualization -->
+    <div class="project">
+      <h3><a href="https://github.com/Abdirahman-ai/Earthquake-Visualization-Project" target="_blank">Earthquake Visualization Tool</a></h3>
+      <span>2024</span>
+      <ul>
+        <li>Showcases a dynamic visualization of earthquake data from 1905 to 2007, sourced from NASA and USGS.</li>
+        <li>Enables users to interactively switch between a 2D flat map and a 3D globe view.</li>
+        <li><strong>Flat Map and Globe Mesh Creation:</strong>
+          <ul>
+            <li>Developed a flat map mesh subdivided into triangles to represent Earth's surface.</li>
+            <li>Used precise calculations for vertex positions and normals.</li>
+            <li>Applied texture mapping for visual enhancement.</li>
+          </ul>
+        </li>
+        <li><strong>Smooth Morphing Effect:</strong>
+          <ul>
+            <li>Implemented seamless transition between 2D map and 3D globe.</li>
+            <li>Created an intuitive and visually pleasing experience.</li>
+          </ul>
+        </li>
+        <li><strong>Earthquake Marker Visualization:</strong>
+          <ul>
+            <li>Accurately positioned markers based on latitude and longitude data.</li>
+            <li>Dynamically scaled markers based on earthquake magnitude.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- iHomie Project -->
+    <div class="project">
+      <h3><a href="https://github.com/Abdirahman-ai/ihomie" target="_blank">iHomie – Real Estate Management App</a></h3>
+      <span>2023</span>
+      <ul>
+        <li>Built a mobile real estate app using Kotlin and PostgreSQL that enables users to search, filter, and save property listings.</li>
+        <li>Implemented key features like search by zip code or address, viewing detailed property info, and managing favorites with persistent storage.</li>
+        <li>Added advanced filters for price, bedrooms, bathrooms, square footage, garage, and pool availability.</li>
+        <li>Integrated dark mode, map views, and location tracking to enhance user experience.</li>
+        <li>Included optional statistics screen showing price trends and commute time to custom destinations.</li>
+        <li>Explored AI features to provide users with market insights and personalized property recommendations.</li>
+        <li>Handled navigation flows with bottom navigation and multi-screen transitions across Browse, Saved Homes, Stats, and Account.</li>
+        <li>Collaborated in a team using agile practices, GitHub for version control, and thorough testing throughout development.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form action="https://formsubmit.co/abdinahmen@gmail.com" method="POST">
+      <input type="text" name="name" placeholder="Full name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <textarea name="message" placeholder="Your message..." rows="5" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <section class="center socials">
+    <a href="https://github.com/abdirahman-ai" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg" alt="GitHub"></a>
+    <a href="https://www.linkedin.com/in/abdi-m-a3a4941a5/" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/linkedin.svg" alt="LinkedIn"></a>
+  </section>
+
+  <script>
+    // Fetch GitHub profile data
+    fetch("https://api.github.com/users/abdirahman-ai")
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("profile-pic").src = data.avatar_url;
+        document.getElementById("bio").innerText = data.bio;
+      });
+  </script>
+</body>
+</html>

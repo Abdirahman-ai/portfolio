@@ -10,49 +10,112 @@
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f3f4f6;
-      color: #333;
+      background-color: #121212;
+      color: #e0e0e0;
     }
     nav {
-      background: #333;
+      background: #1f1f1f;
       color: white;
       padding: 1rem;
-      text-align: center;
       display: flex;
+      justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
-      justify-content: center;
+    }
+    nav .menu {
+      display: flex;
       gap: 1rem;
+      flex-wrap: wrap;
     }
     nav a {
-      color: white;
+      color: #e0e0e0;
       text-decoration: none;
       padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    nav a:hover {
+      background-color: #333;
+      box-shadow: 0 4px 10px rgba(255, 111, 97, 0.3);
+    }
+    .nav-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: white;
+    }
+    .nav-open .menu {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
     }
     section {
       padding: 3rem 2rem;
       max-width: 900px;
       margin: auto;
-      background-color: #ffffff;
+      background-color: #1e1e1e !important;
       margin-bottom: 2rem;
       border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     }
     .center {
       text-align: center;
+    }
+    #about {
+      color: #ffffff;
+      background-color: #1a1a1a;
+      padding: 4rem 2rem;
+      border: 2px dashed #333;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
     #profile-pic {
       border-radius: 50%;
       width: 150px;
       animation: pop 1s ease-in-out;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+    }
+    #bio {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 1rem auto 0;
+      color: #ffffff;
     }
     @keyframes pop {
       0% { transform: scale(0); }
       100% { transform: scale(1); }
     }
+    #projects .project-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      background-color: #1e1e1e;
+      padding: 1rem;
+      border-radius: 10px;
+    }
     .project {
-      border-bottom: 1px solid #ccc;
-      margin-bottom: 1rem;
-      padding-bottom: 1rem;
+      border: 1px solid #333;
+      padding: 1.5rem;
+      border-radius: 10px;
+      background-color: #2a2a2a;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      transition: transform 0.2s ease;
+    }
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 12px rgba(255, 111, 97, 0.3);
+    }
+    .project h3 a {
+      color: #ff6f61;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .project h3 a:hover {
+      color: #ffa99c;
     }
     .socials {
       display: flex;
@@ -63,6 +126,11 @@
     .socials img {
       width: 30px;
       margin: 0.5rem;
+      filter: invert(100%);
+      transition: transform 0.3s ease;
+    }
+    .socials img:hover {
+      transform: scale(1.2);
     }
     button, .btn {
       background: #ff6f61;
@@ -71,46 +139,48 @@
       padding: 0.75rem 1.25rem;
       cursor: pointer;
       border-radius: 6px;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 2px 6px rgba(255, 111, 97, 0.2);
     }
     button:hover, .btn:hover {
       background: #e64a3c;
+      box-shadow: 0 4px 12px rgba(255, 111, 97, 0.4);
+      transform: translateY(-2px);
     }
     form input, form textarea {
       display: block;
       width: 100%;
       margin: 0.5rem 0;
       padding: 0.75rem;
-      border: 1px solid #ccc;
+      border: 1px solid #444;
+      background: #2a2a2a;
+      color: #eee;
       border-radius: 6px;
     }
-
-    /* Responsive Adjustments */
     @media (max-width: 768px) {
-      nav {
+      .nav-toggle {
+        display: block;
+      }
+      .menu {
+        display: none;
         flex-direction: column;
-        align-items: center;
+        width: 100%;
       }
-      nav a {
-        padding: 0.75rem;
-      }
-    }
-    @media (max-width: 600px) {
-      section {
-        padding: 2rem 1rem;
-      }
-      #profile-pic {
-        width: 120px;
+      .nav-open .menu {
+        display: flex;
       }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-    <a href="UpdatedResume.pdf" class="btn" download>Download Resume</a>
+  <nav id="navbar">
+    <button class="nav-toggle" onclick="document.getElementById('navbar').classList.toggle('nav-open')">☰</button>
+    <div class="menu">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a href="UpdatedResume.pdf" class="btn" download>Download Resume</a>
+    </div>
   </nav>
 
   <section id="about" class="center">
@@ -121,63 +191,34 @@
 
   <section id="projects">
     <h2>Projects</h2>
-    <!-- Twitter API Project -->
-    <div class="project">
-      <h3><a href="https://github.com/fasttrackd-student-work/spring-assessment-social-media-march-2025-team-2" target="_blank">Twitter API</a></h3>
-      <span>2025</span>
-      <ul>
-        <li>Worked with a team to build a Twitter clone REST API using Spring Boot.</li>
-        <li>Implemented features like posting tweets, managing mentions and hashtags, replies, reposts, and user interactions (likes, mentions).</li>
-        <li>Handled complex entity relationships and recursive data flows.</li>
-        <li>Built clean validation logic using DTOs and service layers.</li>
-        <li>Practiced agile collaboration and Git-based team workflows.</li>
-        <li>Tested endpoints using Postman and automated tests with Newman.</li>
-      </ul>
-    </div>
-
-    <!-- Earthquake Visualization -->
-    <div class="project">
-      <h3><a href="https://github.com/Abdirahman-ai/Earthquake-Visualization-Project" target="_blank">Earthquake Visualization Tool</a></h3>
-      <span>2024</span>
-      <ul>
-        <li>Showcases a dynamic visualization of earthquake data from 1905 to 2007, sourced from NASA and USGS.</li>
-        <li>Enables users to interactively switch between a 2D flat map and a 3D globe view.</li>
-        <li><strong>Flat Map and Globe Mesh Creation:</strong>
-          <ul>
-            <li>Developed a flat map mesh subdivided into triangles to represent Earth's surface.</li>
-            <li>Used precise calculations for vertex positions and normals.</li>
-            <li>Applied texture mapping for visual enhancement.</li>
-          </ul>
-        </li>
-        <li><strong>Smooth Morphing Effect:</strong>
-          <ul>
-            <li>Implemented seamless transition between 2D map and 3D globe.</li>
-            <li>Created an intuitive and visually pleasing experience.</li>
-          </ul>
-        </li>
-        <li><strong>Earthquake Marker Visualization:</strong>
-          <ul>
-            <li>Accurately positioned markers based on latitude and longitude data.</li>
-            <li>Dynamically scaled markers based on earthquake magnitude.</li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <!-- iHomie Project -->
-    <div class="project">
-      <h3><a href="https://github.com/Abdirahman-ai/ihomie" target="_blank">iHomie – Real Estate Management App</a></h3>
-      <span>2023</span>
-      <ul>
-        <li>Built a mobile real estate app using Kotlin and PostgreSQL that enables users to search, filter, and save property listings.</li>
-        <li>Implemented key features like search by zip code or address, viewing detailed property info, and managing favorites with persistent storage.</li>
-        <li>Added advanced filters for price, bedrooms, bathrooms, square footage, garage, and pool availability.</li>
-        <li>Integrated dark mode, map views, and location tracking to enhance user experience.</li>
-        <li>Included optional statistics screen showing price trends and commute time to custom destinations.</li>
-        <li>Explored AI features to provide users with market insights and personalized property recommendations.</li>
-        <li>Handled navigation flows with bottom navigation and multi-screen transitions across Browse, Saved Homes, Stats, and Account.</li>
-        <li>Collaborated in a team using agile practices, GitHub for version control, and thorough testing throughout development.</li>
-      </ul>
+    <div class="project-list">
+      <div class="project">
+        <h3><a href="https://github.com/fasttrackd-student-work/spring-assessment-social-media-march-2025-team-2" target="_blank">Twitter API</a></h3>
+        <span>2025</span>
+        <ul>
+          <li>Built a Twitter clone REST API using Spring Boot.</li>
+          <li>Implemented tweets, mentions, replies, reposts, likes, and user interactions.</li>
+          <li>Used DTOs and service logic to manage recursive structures and validation.</li>
+        </ul>
+      </div>
+      <div class="project">
+        <h3><a href="https://github.com/Abdirahman-ai/Earthquake-Visualization-Project" target="_blank">Earthquake Visualization Tool</a></h3>
+        <span>2024</span>
+        <ul>
+          <li>Visualized earthquake data from NASA and USGS from 1905–2007.</li>
+          <li>Built a 2D map and 3D globe view with textured meshes.</li>
+          <li>Implemented smooth morphing and magnitude-scaled markers.</li>
+        </ul>
+      </div>
+      <div class="project">
+        <h3><a href="https://github.com/Abdirahman-ai/ihomie" target="_blank">iHomie – Real Estate App</a></h3>
+        <span>2023</span>
+        <ul>
+          <li>Mobile app using Kotlin and PostgreSQL to manage property listings.</li>
+          <li>Included advanced filters, maps, statistics, and dark mode features.</li>
+          <li>Explored AI-based personalization and market insights.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -192,12 +233,15 @@
   </section>
 
   <section class="center socials">
-    <a href="https://github.com/abdirahman-ai" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg" alt="GitHub"></a>
-    <a href="https://www.linkedin.com/in/abdi-m-a3a4941a5/" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/linkedin.svg" alt="LinkedIn"></a>
+    <a href="https://github.com/abdirahman-ai" target="_blank">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg" alt="GitHub">
+    </a>
+    <a href="https://www.linkedin.com/in/abdi-m-a3a4941a5/" target="_blank">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/linkedin.svg" alt="LinkedIn">
+    </a>
   </section>
 
   <script>
-    // Fetch GitHub profile data
     fetch("https://api.github.com/users/abdirahman-ai")
       .then(response => response.json())
       .then(data => {

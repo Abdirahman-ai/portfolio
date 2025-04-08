@@ -117,6 +117,16 @@
     .project h3 a:hover {
       color: #ffa99c;
     }
+    .project .tech-stack {
+      font-family: 'Courier New', monospace;
+      background-color: #1a1a1a;
+      padding: 4px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      color: #d5ee33;
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+    }
     .socials {
       display: flex;
       justify-content: center;
@@ -189,46 +199,66 @@
     <p id="bio">Loading bio...</p>
   </section>
 
+
+  <!-- <section id="tech-stack">
+    <h2 class="center">Tech Stack</h2>
+    <ul>
+      <li>HTML, CSS, JavaScript (Vanilla)</li>
+      <li>Git & GitHub for version control</li>
+      <li>Responsive layout using Flexbox & CSS Grid</li>
+      <li>CSS animations and transitions</li>
+      <li>GitHub API for profile integration</li>
+      <li>FormSubmit for contact form handling</li>
+      <li>Docker (for projects like the Drone Delivery System)</li>
+    </ul>
+  </section> -->
+
   <section id="projects">
-    <h2>Projects</h2>
+    <h2 class="center">Projects</h2>
     <div class="project-list">
       <div class="project">
         <h3><a href="https://github.com/fasttrackd-student-work/spring-assessment-social-media-march-2025-team-2" target="_blank">Twitter API</a></h3>
         <span>2025</span>
+        <p class="tech-stack">Tech Stack: Java, Spring Boot, Postman, JSON, REST API</p>
         <ul>
           <li>Built a Twitter clone REST API using Spring Boot.</li>
-          <li>Implemented tweets, mentions, replies, reposts, likes, and user interactions.</li>
-          <li>Used DTOs and service logic to manage recursive structures and validation.</li>
-        </ul>
-      </div>
-      <div class="project">
-        <h3><a href="https://github.com/Abdirahman-ai/Earthquake-Visualization-Project" target="_blank">Earthquake Visualization Tool</a></h3>
-        <span>2024</span>
-        <ul>
-          <li>Visualized earthquake data from NASA and USGS from 1905–2007.</li>
-          <li>Built a 2D map and 3D globe view with textured meshes.</li>
-          <li>Implemented smooth morphing and magnitude-scaled markers.</li>
-        </ul>
-      </div>
-      <div class="project">
-        <h3><a href="https://github.com/Abdirahman-ai/ihomie" target="_blank">iHomie – Real Estate App</a></h3>
-        <span>2023</span>
-        <ul>
-          <li>Mobile app using Kotlin and PostgreSQL to manage property listings.</li>
-          <li>Included advanced filters, maps, statistics, and dark mode features.</li>
-          <li>Explored AI-based personalization and market insights.</li>
+          <li>Implemented features like tweets, mentions, replies, reposts, likes, and user interactions.</li>
+          <li>Handled complex entity relationships and recursive logic using DTOs and services.</li>
+          <li>Tested endpoints using Postman and automated scripts with Newman.</li>
         </ul>
       </div>
 
       <div class="project">
-        <h3><a href="https://github.com/Abdirahman-ai/Drone-Simulation-System" target="_blank">Drone Delivery Simulation System</a></h3>
+        <h3><a href="https://github.com/Abdirahman-ai/Earthquake-Visualization-Project" target="_blank">Earthquake Visualization Tool</a></h3>
         <span>2024</span>
+        <p class="tech-stack">Tech Stack: TypeScript, GopherGfx, Vite, dat.GUI, GLSL</p>
         <ul>
-          <li>Developed a comprehensive delivery drone system with autonomous navigation using C/C++, JavaScript, HTML, and CSS.</li>
-          <li>Implemented selectable navigation strategies: A*, Dijkstra's, and DFS.</li>
-          <li>Built an intelligent algorithm for autonomous charging station routing based on battery thresholds and proximity.</li>
-          <li>Enhanced drone functionality with battery extension using the Decorator Design Pattern.</li>
-          <li>Applied Factory Design Pattern for scalable charging station creation.</li>
+          <li>Visualized earthquake data from NASA and USGS spanning 1905–2007.</li>
+          <li>Built a 2D map and 3D globe view using interactive textures and meshes.</li>
+          <li>Implemented smooth morphing and magnitude-scaled markers.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <h3><a href="https://github.com/Abdirahman-ai/ihomie" target="_blank">iHomie – Real Estate App</a></h3>
+        <span>2023</span>
+        <p class="tech-stack">Tech Stack: Kotlin, PostgreSQL, Android SDK</p>
+        <ul>
+          <li>Mobile app using Kotlin and PostgreSQL to search and filter property listings.</li>
+          <li>Included advanced filters, dark mode, maps, and statistics screen with insights.</li>
+          <li>Explored AI features for market insights and user personalization.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <h3><a href="https://github.com/Abdirahman-ai/team-010-31-project" target="_blank">Drone Delivery System</a></h3>
+        <span>2022</span>
+        <p class="tech-stack">Tech Stack: C++, JavaScript, HTML, CSS, Docker</p>
+        <ul>
+          <li>Developed a comprehensive drone delivery system with autonomous navigation.</li>
+          <li>Implemented A*, Dijkstra’s, and DFS pathfinding algorithms.</li>
+          <li>Created battery-aware drone behavior with rerouting to charging stations.</li>
+          <li>Used Decorator & Factory Design Patterns to extend functionality.</li>
         </ul>
       </div>
     </div>

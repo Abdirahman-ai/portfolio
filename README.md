@@ -4,7 +4,7 @@ Welcome to my personal developer portfolio! This website was built to showcase m
 
 ## 🚀 Live Site
 
-🌐 [View Portfolio](https://yourusername.github.io/portfolio-site/)  
+🌐 [View Portfolio](https://abdirahman-ai.github.io/portfolio/)  
 *(Replace the URL with your actual GitHub Pages link)*
 
 ## 📌 Features

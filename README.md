@@ -1,4 +1,4 @@
-# Abdirahman's Portfolio
+# Abdinahmen's Portfolio
 
 Welcome to my personal developer portfolio! This website was built to showcase my projects, experience, and journey through the FastTrack'D program. It’s fully responsive, animated, and powered by real-time GitHub API integration.
 

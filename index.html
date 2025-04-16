@@ -111,12 +111,29 @@
     }
     .project h3 a {
       color: #ff6f61;
-      text-decoration: none;
+      text-decoration: underline;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
       transition: color 0.3s ease;
+      cursor: pointer;
     }
+
+    .project h3 a::after {
+      content: "🔗";
+      font-size: 0.9rem;
+      transition: transform 0.3s ease;
+    }
+
     .project h3 a:hover {
       color: #ffa99c;
     }
+
+    .project h3 a:hover::after {
+      transform: translateY(-2px);
+    }
+
     .project .tech-stack {
       font-family: 'Courier New', monospace;
       background-color: #1a1a1a;
@@ -200,17 +217,6 @@
     <img id="profile-pic" src="" alt="Profile Picture" />
     <p id="bio">Loading bio...</p>
   </section>
-
-  <!-- <section id="journey" class="center">
-    <h2>My Journey Through FastTrack’D</h2>
-    <p style="max-width: 700px; margin: auto; font-size: 1.1rem;">
-      My name is Abdinahmen Ahmed, and my journey through FastTrack’D has been transformative. I began with a foundation in computer science and a strong interest in software development, but this program helped sharpen my skills, both technically and professionally. I learned how to think like a problem solver, how to better communicate my ideas, and how to collaborate effectively in fast-paced environments. 
-    </p>
-    <br />
-    <p style="max-width: 700px; margin: auto; font-size: 1.1rem;">
-      During this program, I built full-stack applications, learned how to work with APIs, and developed confidence in sharing my story. I designed this portfolio from scratch as a way to reflect on my progress and present my skills. This page not only shows the projects I’ve built, but it also highlights my dedication and personal growth.
-    </p>
-  </section> -->
 
   <section id="projects">
     <h2 class="center">Projects</h2>

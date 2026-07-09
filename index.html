@@ -1,4 +1,372 @@
- <!-- PROJECTS / MODULES -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdinahmen Ahmed — Software Engineer</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg: #0a0f1c;
+  --bg-panel: #111a2e;
+  --bg-panel-2: #16213b;
+  --border: rgba(232,236,244,0.09);
+  --border-strong: rgba(232,236,244,0.16);
+  --amber: #f5a623;
+  --amber-dim: rgba(245,166,35,0.14);
+  --teal: #5eead4;
+  --teal-dim: rgba(94,234,212,0.14);
+  --text: #e8ecf4;
+  --text-muted: #8b93a7;
+  --text-dim: #545c70;
+  --radius: 10px;
+  --wrap: 1120px;
+}
+
+*{ box-sizing: border-box; margin:0; padding:0; }
+html{ scroll-behavior: smooth; }
+body{
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+body::before{
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(232,236,244,0.05) 1px, transparent 0);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 90%);
+}
+a{ color: inherit; text-decoration: none; }
+img{ max-width: 100%; display:block; }
+.wrap{ max-width: var(--wrap); margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+.eyebrow{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.eyebrow .num{ color: var(--text-dim); }
+h1,h2,h3{ font-family: 'Space Grotesk', sans-serif; font-weight: 600; letter-spacing: -0.01em; }
+:focus-visible{ outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
+
+/* ---------- NAV ---------- */
+header{
+  position: fixed; top:0; left:0; right:0; z-index: 50;
+  backdrop-filter: blur(10px);
+  background: rgba(10,15,28,0.72);
+  border-bottom: 1px solid var(--border);
+}
+nav{
+  display:flex; align-items:center; justify-content: space-between;
+  height: 68px;
+}
+.logo{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  display:flex; align-items:center; gap:8px;
+}
+.logo .dot{ width:7px; height:7px; border-radius:50%; background: var(--amber); box-shadow: 0 0 8px var(--amber); animation: pulse 2.4s ease-in-out infinite; }
+@keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:0.35; } }
+.nav-links{ display:flex; gap: 32px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; }
+.nav-links a{ color: var(--text-muted); transition: color .2s; position:relative; }
+.nav-links a:hover{ color: var(--amber); }
+.nav-toggle{ display:none; background:none; border:none; color:var(--text); font-size: 22px; cursor:pointer; }
+
+@media (max-width: 760px){
+  .nav-links{
+    position:fixed; top:68px; left:0; right:0;
+    background: var(--bg-panel);
+    flex-direction: column; gap:0;
+    border-bottom: 1px solid var(--border);
+    max-height:0; overflow:hidden; transition: max-height .3s ease;
+  }
+  .nav-links.open{ max-height: 260px; }
+  .nav-links a{ padding: 16px 28px; border-top: 1px solid var(--border); }
+  .nav-toggle{ display:block; }
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  min-height: 100vh;
+  display:flex; flex-direction: column; justify-content:center;
+  padding-top: 100px; padding-bottom: 60px;
+  position: relative;
+}
+.status-badge{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.1em;
+  color: var(--amber); background: var(--amber-dim);
+  border: 1px solid rgba(245,166,35,0.3);
+  padding: 6px 12px; border-radius: 100px;
+  margin-bottom: 28px;
+}
+.status-badge .dot{ width:6px;height:6px;border-radius:50%; background:var(--amber); animation: pulse 2s infinite; }
+
+.hero h1{
+  font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+  line-height: 1.05;
+  max-width: 780px;
+}
+.hero h1 .accent{ color: var(--amber); }
+.hero .lede{
+  margin-top: 24px;
+  max-width: 620px;
+  font-size: 17px;
+  color: var(--text-muted);
+}
+.hero-cta{ display:flex; gap:16px; margin-top: 36px; flex-wrap:wrap; }
+.btn{
+  font-family:'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.04em;
+  padding: 13px 22px; border-radius: 8px; border: 1px solid var(--border-strong);
+  transition: all .2s ease; display:inline-flex; align-items:center; gap:8px;
+}
+.btn-primary{ background: var(--amber); color: #1a1204; border-color: var(--amber); font-weight:600; }
+.btn-primary:hover{ background: #ffb84d; transform: translateY(-1px); }
+.btn-ghost{ color: var(--text); background: transparent; }
+.btn-ghost:hover{ border-color: var(--teal); color: var(--teal); }
+
+/* terminal log */
+.terminal{
+  margin-top: 56px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  max-width: 640px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px -20px rgba(0,0,0,0.6);
+}
+.terminal-bar{
+  display:flex; align-items:center; gap:8px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-panel-2);
+}
+.terminal-bar span{ width:9px; height:9px; border-radius:50%; background: var(--border-strong); }
+.terminal-bar .label{
+  font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--text-dim);
+  margin-left: 8px; letter-spacing:0.08em;
+}
+.terminal-body{
+  font-family:'IBM Plex Mono', monospace; font-size: 12.5px;
+  padding: 16px 18px; height: 168px; overflow: hidden;
+  color: var(--text-muted);
+}
+.terminal-line{ opacity:0; animation: fadeIn .4s forwards; margin-bottom: 8px; white-space: nowrap; }
+.terminal-line .ts{ color: var(--text-dim); margin-right: 10px; }
+.terminal-line .ok{ color: var(--teal); }
+@keyframes fadeIn{ to{ opacity:1; } }
+.cursor{ display:inline-block; width:7px; height:14px; background: var(--amber); animation: blink 1s step-end infinite; vertical-align: middle; }
+@keyframes blink{ 50%{ opacity:0; } }
+
+@media (prefers-reduced-motion: reduce){
+  .terminal-line, .logo .dot, .status-badge .dot, .cursor{ animation: none !important; opacity:1 !important; }
+}
+
+/* ---------- SECTION SHARED ---------- */
+section{ padding: 120px 0; position: relative; z-index:1; }
+.section-head{ margin-bottom: 56px; max-width: 640px; }
+.section-head h2{ font-size: clamp(1.8rem, 3.4vw, 2.6rem); margin-top: 14px; }
+.section-head p{ color: var(--text-muted); margin-top: 14px; font-size: 15.5px; }
+.divider{ height:1px; background: var(--border); border:none; }
+
+/* ---------- SHIFT LOG (experience) ---------- */
+.timeline{ position: relative; padding-left: 32px; }
+.timeline::before{
+  content:''; position:absolute; left:5px; top:6px; bottom:6px; width:1px;
+  background: linear-gradient(var(--amber), var(--border) 90%);
+}
+.tl-item{ position: relative; padding-bottom: 52px; }
+.tl-item:last-child{ padding-bottom: 0; }
+.tl-item::before{
+  content:''; position:absolute; left:-32px; top:4px; width:11px; height:11px;
+  border-radius:50%; background: var(--bg); border: 2px solid var(--amber);
+}
+.tl-meta{
+  font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--amber);
+  letter-spacing:0.06em; text-transform:uppercase; margin-bottom:8px;
+}
+.tl-item h3{ font-size: 1.3rem; }
+.tl-item .org{ color: var(--text-muted); font-size: 14.5px; margin-top:4px; margin-bottom:14px; }
+.tl-item ul{ list-style:none; }
+.tl-item li{
+  position: relative; padding-left: 18px; color: var(--text-muted);
+  font-size: 14.5px; margin-bottom: 8px;
+}
+.tl-item li::before{ content:'—'; position:absolute; left:0; color: var(--text-dim); }
+
+/* ---------- PROJECTS / MODULES ---------- */
+.modules-grid{
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  gap: 20px;
+}
+.module-card{
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px;
+  display:flex; flex-direction:column;
+  transition: border-color .25s, transform .25s;
+}
+.module-card:hover{ border-color: rgba(245,166,35,0.35); transform: translateY(-3px); }
+.module-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:12px; }
+.module-card h3{ font-size: 1.05rem; }
+.module-year{ font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--text-dim); white-space:nowrap; margin-top:4px; }
+.module-card p{ color: var(--text-muted); font-size: 14px; margin-bottom: 16px; flex-grow:1; }
+.tag-row{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:18px; }
+.tag{
+  font-family:'IBM Plex Mono', monospace; font-size: 11px;
+  color: var(--teal); background: var(--teal-dim);
+  padding: 3px 9px; border-radius: 5px;
+}
+.module-link{
+  font-family:'IBM Plex Mono', monospace; font-size:12.5px; color: var(--text);
+  display:inline-flex; align-items:center; gap:6px; align-self:flex-start;
+  border-top: 1px solid var(--border); padding-top: 14px; width:100%;
+  transition: color .2s;
+}
+.module-link:hover{ color: var(--amber); }
+.module-link .arrow{ transition: transform .2s; }
+.module-link:hover .arrow{ transform: translateX(3px); }
+
+/* ---------- CAPABILITIES (skills) ---------- */
+.cap-grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 24px; }
+.cap-card{ border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; background: var(--bg-panel); }
+.cap-card .cap-label{
+  font-family:'IBM Plex Mono', monospace; font-size:11px; color: var(--amber);
+  letter-spacing:0.1em; margin-bottom:16px;
+}
+.pill-row{ display:flex; flex-wrap:wrap; gap:8px; }
+.pill{
+  font-size: 13.5px; padding: 7px 13px; border-radius: 7px;
+  background: var(--bg-panel-2); border: 1px solid var(--border); color: var(--text);
+}
+
+/* ---------- EDUCATION ---------- */
+.edu-grid{ display:grid; grid-template-columns: 1.2fr 1fr; gap: 40px; }
+@media (max-width: 760px){ .edu-grid{ grid-template-columns: 1fr; } }
+.edu-block h3{ font-size: 1.05rem; margin-bottom: 6px; }
+.edu-block .school{ color: var(--text-muted); font-size: 14px; margin-bottom: 4px; }
+.edu-block .meta{ font-family:'IBM Plex Mono', monospace; font-size:12px; color: var(--text-dim); margin-bottom: 24px; }
+.list-plain{ list-style:none; }
+.list-plain li{ font-size: 14.5px; color: var(--text-muted); padding: 10px 0; border-bottom: 1px solid var(--border); display:flex; justify-content:space-between; gap: 12px; }
+.list-plain li span:last-child{ font-family:'IBM Plex Mono', monospace; font-size:12px; color: var(--text-dim); white-space:nowrap; }
+
+/* ---------- CONTACT / FOOTER ---------- */
+.contact{ text-align:center; }
+.contact h2{ font-size: clamp(2rem,4.5vw,3.2rem); max-width: 700px; margin: 18px auto 0; }
+.contact p{ color: var(--text-muted); max-width:480px; margin: 18px auto 0; }
+.contact-cta{ margin-top: 40px; display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+.contact-meta{
+  margin-top: 48px; display:flex; justify-content:center; gap:28px; flex-wrap:wrap;
+  font-family:'IBM Plex Mono', monospace; font-size: 13px; color: var(--text-muted);
+}
+.contact-meta a:hover{ color: var(--amber); }
+footer{
+  border-top: 1px solid var(--border); padding: 28px 0;
+  font-family:'IBM Plex Mono', monospace; font-size:12px; color: var(--text-dim);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+}
+
+/* reveal on scroll */
+.reveal{ opacity:0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in{ opacity:1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="logo"><span class="dot"></span>A.AHMED</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#log">Shift Log</a>
+        <a href="#modules">Modules</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="status-badge"><span class="dot"></span>STATUS: OPEN TO OPPORTUNITIES</div>
+      <h1>I run operations.<br>Now I <span class="accent">write the software</span> that runs them.</h1>
+      <p class="lede">Abdinahmen Ahmed — Computer Science graduate from the University of Minnesota, leading a
+      large team at Amazon by day and shipping data pipelines, APIs, and full-stack apps the rest of the time.
+      Same discipline either way: measure everything, find the bottleneck, fix it.</p>
+      <div class="hero-cta">
+        <a href="#modules" class="btn btn-primary">View modules →</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+
+      <div class="terminal" role="img" aria-label="Animated terminal log showing project activity">
+        <div class="terminal-bar">
+          <span style="background:#f5a623"></span><span></span><span></span>
+          <span class="label">ops-log.stream</span>
+        </div>
+        <div class="terminal-body" id="termBody"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHIFT LOG / EXPERIENCE -->
+  <section id="log">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow"><span class="num">01</span> Shift Log</div>
+        <h2>Where I've worked</h2>
+        <p>Four years managing people and freight at Amazon, running in parallel with a Computer Science degree
+        and a growing stack of shipped software.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-meta">Dec 2023 — Present</div>
+          <h3>Area Manager</h3>
+          <div class="org">Amazon · Minneapolis, MN</div>
+          <ul>
+            <li>Lead daily operations for a large team while holding the line on safety, quality, and productivity</li>
+            <li>Review performance data and operational metrics to find process improvement opportunities</li>
+            <li>Coordinate across departments to resolve workflow issues and support business goals</li>
+            <li>Coach and develop associates through training, feedback, and performance management</li>
+          </ul>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-meta">Feb 2020 — Dec 2023</div>
+          <h3>Transportation Associate</h3>
+          <div class="org">Amazon · Shakopee, MN</div>
+          <ul>
+            <li>Coordinated transportation and yard operations to keep trailers and freight moving on time</li>
+            <li>Trained associates on safety procedures, operational standards, and best practices</li>
+            <li>Worked with internal teams and external partners to resolve issues and cut delays</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS / MODULES -->
   <section id="modules">
     <div class="wrap">
       <div class="section-head reveal">
@@ -86,3 +454,144 @@
       </div>
     </div>
   </section>
+
+  <!-- CAPABILITIES / SKILLS -->
+  <section id="capabilities">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow"><span class="num">03</span> Capabilities</div>
+        <h2>What I work with</h2>
+      </div>
+
+      <div class="cap-grid">
+        <div class="cap-card reveal">
+          <div class="cap-label">LANGUAGES</div>
+          <div class="pill-row">
+            <span class="pill">Python</span><span class="pill">Java</span><span class="pill">SQL</span>
+            <span class="pill">Kotlin</span><span class="pill">TypeScript</span><span class="pill">C++</span>
+          </div>
+        </div>
+        <div class="cap-card reveal">
+          <div class="cap-label">FRAMEWORKS &amp; TOOLS</div>
+          <div class="pill-row">
+            <span class="pill">FastAPI</span><span class="pill">Spring Boot</span><span class="pill">Angular</span>
+            <span class="pill">Pandas</span><span class="pill">NumPy</span><span class="pill">Matplotlib</span>
+            <span class="pill">SQLite</span><span class="pill">PostgreSQL</span><span class="pill">Git</span>
+            <span class="pill">Docker</span><span class="pill">Postman</span>
+          </div>
+        </div>
+        <div class="cap-card reveal">
+          <div class="cap-label">CORE SKILLS</div>
+          <div class="pill-row">
+            <span class="pill">Data Analysis</span><span class="pill">Process Improvement</span>
+            <span class="pill">Leadership</span><span class="pill">Problem Solving</span>
+            <span class="pill">Agile</span><span class="pill">OOP</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow"><span class="num">04</span> Education</div>
+        <h2>Training &amp; credentials</h2>
+      </div>
+
+      <div class="edu-grid">
+        <div class="edu-block reveal">
+          <h3>B.S. Computer Science</h3>
+          <div class="school">University of Minnesota — College of Science and Engineering</div>
+          <div class="meta">2020 – 2024 · GPA 3.6/4.0</div>
+
+          <h3>Ongoing training</h3>
+          <ul class="list-plain">
+            <li><span>Revature Data Engineering Program — Python, SQL, Pandas, NumPy, data analysis</span><span>2026</span></li>
+            <li><span>Cook Systems FastTrack Program — Java, Spring Boot, Angular, PostgreSQL</span><span>2025</span></li>
+          </ul>
+        </div>
+
+        <div class="edu-block reveal">
+          <h3>Certifications</h3>
+          <ul class="list-plain">
+            <li><span>CodePath — Intermediate Android Development</span><span>2024</span></li>
+            <li><span>CodePath — Intro to Android Development</span><span>2023</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="eyebrow" style="justify-content:center"><span class="num">05</span> Contact</div>
+      <h2>Let's talk about what you're building.</h2>
+      <p>Open to software development and data engineering roles. Based in Kenosha, WI — happy to talk remote,
+      hybrid, or Minneapolis-area opportunities.</p>
+      <div class="contact-cta">
+        <a href="mailto:abdinahmen@gmail.com" class="btn btn-primary">Email me →</a>
+        <a href="tel:6128062458" class="btn btn-ghost">612-806-2458</a>
+      </div>
+      <div class="contact-meta">
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+        <a href="mailto:abdinahmen@gmail.com">abdinahmen@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; width:100%;">
+    <span>© 2026 Abdinahmen Ahmed</span>
+    <span>Built with intention, not a template.</span>
+  </div>
+</footer>
+
+<script>
+// mobile nav toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+// scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.15 });
+revealEls.forEach(el => io.observe(el));
+
+// terminal log ticker
+const logLines = [
+  { ts: '04:12:01', text: 'Processed 100,842 climate records', ok: true },
+  { ts: '04:12:04', text: 'Trailer count reconciled — 0 discrepancies', ok: true },
+  { ts: '04:12:07', text: 'POST /expenses/ → 201 Created', ok: true },
+  { ts: '04:12:10', text: 'Coached associate on updated safety procedure', ok: true },
+  { ts: '04:12:13', text: 'Drone rerouted around charging station #2', ok: true },
+  { ts: '04:12:16', text: 'Build passing — 42/42 tests green', ok: true },
+  { ts: '04:12:19', text: 'Deployed Spring Boot service to staging', ok: true },
+  { ts: '04:12:22', text: 'Shift closed — all metrics within target', ok: true },
+];
+const termBody = document.getElementById('termBody');
+let li = 0;
+const maxLines = 6;
+function pushLine(){
+  const item = logLines[li % logLines.length];
+  const row = document.createElement('div');
+  row.className = 'terminal-line';
+  row.innerHTML = `<span class="ts">[${item.ts}]</span><span class="ok">✓</span> ${item.text}`;
+  termBody.appendChild(row);
+  while(termBody.children.length > maxLines){ termBody.removeChild(termBody.firstChild); }
+  li++;
+}
+for(let i=0;i<4;i++) pushLine();
+setInterval(pushLine, 2200);
+</script>
+
+</body>
+</html>
